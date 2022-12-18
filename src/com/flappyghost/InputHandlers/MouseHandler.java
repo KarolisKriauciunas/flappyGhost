@@ -16,12 +16,12 @@ public class MouseHandler implements MouseListener {
     public void mousePressed(MouseEvent event) {
         if (Button.checkUserMouseCollision(event.getX(), event.getY(), Game.startButton) && Game.gameOver) {
             System.out.println("Game should start");
-            Game.startButton.pressed = true;
+            Game.startButton.setPressed(true);
             ObjectHandler.list.clear();
             ObjectHandler.addObject(Game.ghost);
             Game.gameOver = false;
             Game.score = 0;
-            Game.startButton.pressed = false;
+            Game.startButton.setPressed(false);
 
         }
 

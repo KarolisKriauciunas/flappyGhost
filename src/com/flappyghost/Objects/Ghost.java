@@ -9,9 +9,16 @@ import static com.flappyghost.Game.gameOver;
 import static com.flappyghost.Game.loadGraphics;
 
 public class Ghost extends GameObject {
-    public float gravity = 0.3F;
-    public float maxSpeed = 12.0F;
-    public BufferedImage birdSprite;
+    private static float gravity;
+    private static float maxSpeed;
+    private BufferedImage birdSprite;
+
+    static {
+        gravity = 0.2F;
+        maxSpeed = 12.0F;
+    }
+
+
     public Ghost(int x, int y, int width, int height) {
         super(x, y, width, height);
         birdSprite = loadGraphics("ghost.png");

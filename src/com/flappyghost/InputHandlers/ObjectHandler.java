@@ -28,7 +28,7 @@ public class ObjectHandler {
     public static void updateGameObjects() {
         GameObject object;
 
-        for(int objectIndex = 0; objectIndex < list.size(); ++objectIndex) {
+        for (int objectIndex = 0; objectIndex < list.size(); ++objectIndex) {
             object = list.get(objectIndex);
             object.update();
         }

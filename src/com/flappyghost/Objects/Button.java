@@ -4,11 +4,11 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Button {
-    public int x;
-    public int y;
-    public int width;
-    public int height;
-    public boolean pressed;
+    private final int x;
+    private final int y;
+    private final int width;
+    private final int height;
+    private boolean pressed;
     private final BufferedImage image;
 
     public Button(int x, int y, int width, int height, BufferedImage image) {
@@ -30,5 +30,9 @@ public class Button {
             g.drawImage(this.image, this.x, this.y, null);
         }
 
+    }
+
+    public void setPressed(boolean pressed) {
+        this.pressed = pressed;
     }
 }

@@ -7,19 +7,19 @@ import java.util.Random;
 
 public class ObstacleHandler {
     private static final Random random = new Random();
-    public static int area;
-    public static int spacing;
-    public static int minSize;
-    public static int maxSize;
-    public static int delay;
-    public static int now;
+    private static final int area;
+    private static final int spacing;
+    private static final int minSize;
+    private static final int maxSize;
+    private static final int delay;
+    private static int now;
 
     static {
         area = 600;
         spacing = 120;
         minSize = 40;
         maxSize = area - spacing - minSize;
-        delay = 150;
+        delay = 120;
     }
 
     public ObstacleHandler() {
