@@ -1,11 +1,11 @@
 package com.flappyghost.Objects;
 
+import com.flappyghost.Game;
 import com.flappyghost.InputHandlers.ObjectHandler;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-import static com.flappyghost.Game.gameOver;
 import static com.flappyghost.Game.loadGraphics;
 
 public class Ghost extends GameObject {
@@ -46,12 +46,17 @@ public class Ghost extends GameObject {
 
         for (int i = 0; i < ObjectHandler.list.size(); ++i) {
             gameObject = ObjectHandler.list.get(i);
-            if ((gameObject instanceof Obstacle && this.getBounds().intersects(gameObject.getBounds()))){
-                gameOver = true;
-            }
-
+            checkObjectGhostCollision(gameObject);
         }
     }
+
+    public void checkObjectGhostCollision(GameObject gameObject)
+    {
+        if ((gameObject instanceof Obstacle && this.getBounds().intersects(gameObject.getBounds()))){
+            Game.setGameOver(true);
+        }
+    }
+
 
     public void render(Graphics g) {
         g.drawImage(birdSprite, this.x, this.y, this.width,this.height, null );

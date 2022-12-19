@@ -6,6 +6,8 @@ import com.flappyghost.Objects.Button;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import static com.flappyghost.Game.restartGame;
+
 public class MouseHandler implements MouseListener {
     public MouseHandler() {
     }
@@ -14,15 +16,10 @@ public class MouseHandler implements MouseListener {
     }
 
     public void mousePressed(MouseEvent event) {
-        if (Button.checkUserMouseCollision(event.getX(), event.getY(), Game.startButton) && Game.gameOver) {
+        if (Button.checkUserMouseCollision(event.getX(), event.getY(), Game.startButton) && Game.isGameOver()) {
             System.out.println("Game should start");
             Game.startButton.setPressed(true);
-            ObjectHandler.list.clear();
-            ObjectHandler.addObject(Game.ghost);
-            Game.gameOver = false;
-            Game.score = 0;
-            Game.startButton.setPressed(false);
-
+            Game.restartGame();
         }
 
     }

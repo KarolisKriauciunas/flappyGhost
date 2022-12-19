@@ -1,11 +1,11 @@
 package com.flappyghost.Objects;
 
-import com.flappyghost.Game;
 import com.flappyghost.InputHandlers.ObjectHandler;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+import static com.flappyghost.Game.increaseScore;
 import static com.flappyghost.Game.loadGraphics;
 
 public class Obstacle extends GameObject {
@@ -31,7 +31,7 @@ public class Obstacle extends GameObject {
         if (this.x + this.width < 0) {
             ObjectHandler.removeObject(this);
             if (this.type == ObsticleType.TOP) {
-                ++Game.score;
+                increaseScore();
             }
         }
 

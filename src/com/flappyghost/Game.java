@@ -18,15 +18,35 @@ import static com.flappyghost.utils.ResourceLoader.load;
 
 
 public class Game extends Canvas implements Runnable {
-    public static final int WIDTH = 432;
-    public static final int HEIGHT = 600;
-    public boolean running;
-    public static boolean gameOver;
+    private static final int WIDTH = 432;
+    private static final int HEIGHT = 600;
+    private boolean running;
+    private static boolean gameOver;
     public static BufferedImage gameOverImage;
     public static BufferedImage gameBackground;
     public static Ghost ghost;
     public static Button startButton;
-    public static int score;
+    private static int score;
+
+    public static boolean isGameOver() {
+        return gameOver;
+    }
+
+    public static void setGameOver(boolean gameOver) {
+        Game.gameOver = gameOver;
+    }
+    public static void increaseScore()
+    {
+        score++;
+    }
+
+    public static int getScore() {
+        return score;
+    }
+
+    public static void setScore(int score) {
+        Game.score = score;
+    }
 
     public Game() {
     }
@@ -105,4 +125,13 @@ public class Game extends Canvas implements Runnable {
         }
         return image;
     }
+    public static void restartGame()
+    {
+        ObjectHandler.list.clear();
+        ObjectHandler.addObject(Game.ghost);
+        Game.gameOver = false;
+        Game.score = 0;
+        Game.startButton.setPressed(false);
+    }
+
 }

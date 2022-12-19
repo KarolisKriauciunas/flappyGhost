@@ -1,8 +1,13 @@
 package com.flappyghost.Objects;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+@Getter
+@Setter
 public class Button {
     private final int x;
     private final int y;
@@ -20,7 +25,7 @@ public class Button {
     }
 
     public static boolean checkUserMouseCollision(int mouseX, int mouseY, Button btn) {
-        return mouseX >= btn.x && mouseX <= btn.x + btn.width && mouseY >= btn.y && mouseY <= btn.y + btn.height;
+        return mouseX >= btn.getX() && mouseX <= btn.getX() + btn.getWidth() && mouseY >= btn.getY() && mouseY <= btn.getY() + btn.getWidth();
     }
 
     public void render(Graphics g) {
